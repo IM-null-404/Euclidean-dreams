@@ -1,0 +1,233 @@
+#N canvas -1363 63 1456 820 10;
+#X obj 62 10 cnv 15 208 206 empty cnv_bg empty 20 12 0 14 #faeee7 #404040
+0;
+#X obj 69 34 cnv 15 94 86 empty cnv_subbody empty 20 12 0 14 #fffffe
+#404040 0;
+#X obj 169 34 cnv 15 94 74 empty cnv_subbody empty 20 12 0 14 #fffffe
+#404040 0;
+#X msg 78 290 create \, 1;
+#X msg 701 396 0 \, destroy;
+#X msg 353 328 reset \, FSAA 2 \, dimen 1280 720 \, create \, 1, f
+23;
+#X obj 105 440 gemwin 60;
+#X msg 190 246 reset \, FSAA 2 \, dimen 640 480 \, create \, 1, f
+23;
+#X obj 187 438 r bg;
+#X msg 151 317 lighting \$1;
+#X obj -12 103 bng 15 250 50 0 empty empty create 17 5 0 10 #fcfcfc
+#000000 #000000;
+#X obj -12 119 bng 15 250 50 0 empty empty destroy 16 5 0 10 #fcfcfc
+#000000 #000000;
+#X msg 398 462 color 0 0 0 1;
+#X obj 398 483 s bg;
+#X obj 176 43 bng 11 250 50 0 empty empty empty -1 -7 0 10 #000000
+#ffffff #000000;
+#X obj 189 43 bng 11 250 50 0 empty empty empty -1 -7 0 10 #fcfcfc
+#000000 #000000;
+#N canvas 470 430 616 470 ctrl-color 0;
+#X msg 198 231 color 0 0 0 1;
+#X obj 150 226 t b a;
+#X obj 177 -4 inlet;
+#X obj 133 -4 inlet;
+#X obj 149 320 outlet;
+#X obj 227 -4 inlet;
+#X obj 268 -4 inlet;
+#X floatatom 726 155 5 0 0 0 - - -, f 5;
+#X obj 150 171 pack f f f f, f 59;
+#X msg 152 195 set color \$1 \$2 \$3 \$4;
+#X obj 133 21 t b f;
+#X obj 176 20 t b f;
+#X obj 223 20 t b f;
+#X obj 266 19 t b f;
+#X connect 1 0 0 0;
+#X connect 1 0 4 0;
+#X connect 1 1 0 0;
+#X connect 1 1 4 0;
+#X connect 2 0 11 0;
+#X connect 3 0 10 0;
+#X connect 5 0 12 0;
+#X connect 6 0 13 0;
+#X connect 8 0 9 0;
+#X connect 9 0 1 0;
+#X connect 10 0 8 0;
+#X connect 10 1 8 0;
+#X connect 11 0 8 0;
+#X connect 11 1 8 1;
+#X connect 12 0 8 0;
+#X connect 12 1 8 2;
+#X connect 13 0 8 0;
+#X connect 13 1 8 3;
+#X restore 396 436 pd ctrl-color 4;
+#X obj 431 483 s \$0-bg-color;
+#X floatatom 396 411 5 0 0 0 - - -, f 5;
+#X floatatom 459 408 5 0 0 0 - - -, f 5;
+#X floatatom 521 411 5 0 0 0 - - -, f 5;
+#X floatatom 568 411 5 0 0 0 - - -, f 5;
+#X msg 503 354 reset \, FSAA 2 \, dimen 1920 1080 \, create \, 1,
+f 23;
+#X obj 1799 -22 t b a;
+#X msg 1799 1 text Wind Direction(degrees): 310;
+#X obj 1798 -63 pack f;
+#X obj 1798 -88 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 #fcfcfc #000000 #000000 0 256 0;
+#X obj 1675 79 translateXYZ 0 0 0;
+#X floatatom 1750 48 5 0 0 0 - - -, f 5;
+#X floatatom 1714 49 5 0 0 0 - - -, f 5;
+#X obj 1709 17 unpack f f;
+#X obj 1694 175 text2d;
+#X obj 1798 -110 r wind_dir;
+#X msg 1798 -43 set text Wind Direction(degrees): \$1;
+#X obj 137 -181 loadbang;
+#X msg 137 -156 0;
+#X msg 109 262 frame \$1;
+#X obj 62 -20 cnv 15 208 30 empty cnv_head Make\ visual\ window 5 12
+1 18 #fffffe #332700 0;
+#X obj 69 18 cnv 15 94 15 empty cnv_subhead make\ or\ destroy 2 7 1
+13 #c3f0ca #2d334a 0;
+#X obj 76 40 vradio 15 0 0 5 empty empty empty 0 -8 0 10 #fcfcfc #000000
+#000000 4;
+#X obj 535 179 t b;
+#X obj 560 179 t b;
+#X obj 585 179 t b;
+#X obj 614 177 t b;
+#X text 93 39 640x480;
+#X text 93 100 destroy;
+#X obj 69 140 cnv 15 94 27 empty cnv_subbody empty 20 12 0 14 #fffffe
+#404040 0;
+#X obj 69 125 cnv 15 94 15 empty cnv_subhead fps 2 7 1 13 #c3f0ca #2d334a
+0;
+#X obj 75 146 hsl 50 15 10 60 0 0 empty empty fps 1 5 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 129 146 4 0 0 0 - - -, f 4;
+#X obj 169 130 cnv 15 94 27 empty cnv_subbody empty 20 12 0 14 #fffffe
+#404040 0;
+#X obj 169 114 cnv 15 94 15 empty cnv_subhead lighting 2 7 1 13 #c3f0ca
+#2d334a 0;
+#X obj 176 136 tgl 15 0 empty empty light 16 5 0 10 #fefbb8 #000000
+#000000 0 1;
+#X obj 169 18 cnv 15 94 15 empty cnv_subhead change\ bg\ color 2 7
+1 13 #c3f0ca #2d334a 0;
+#X obj 169 180 cnv 15 94 27 empty cnv_subbody empty 20 12 0 14 #fffffe
+#404040 0;
+#X obj 169 164 cnv 15 94 15 empty cnv_subhead cursor 2 7 1 13 #c3f0ca
+#2d334a 0;
+#X obj 176 186 tgl 15 0 empty empty cursor 16 5 0 10 #fefbb8 #000000
+#000000 0 1;
+#X msg 295 219 cursor \$1;
+#X obj 176 65 hsl 75 10 0 1 0 0 empty \$0-cnv_slider G 2 3 1 8 #00ff00
+#000000 #000000 0 1;
+#X obj 176 75 hsl 75 10 0 1 0 0 empty \$0-cnv_slider B 2 3 1 8 #0080ff
+#000000 #000000 0 1;
+#X obj 176 85 hsl 75 10 0 1 0 0 empty \$0-cnv_slider A 2 3 1 8 #fcfcfc
+#000000 #000000 7400 1;
+#X obj 176 55 hsl 75 10 0 1 0 0 empty \$0-cnv_slider R 2 3 1 8 #ff0000
+#000000 #000000 0 1;
+#X msg 310 9 steady 1;
+#X obj 421 -44 loadbang;
+#X obj 421 -19 t b b b b b;
+#X msg 452 8 range 0 1;
+#X obj 398 41 s \$0-cnv_slider;
+#X obj 498 -29 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X msg 371 11 size 75 10;
+#X msg 648 9 label_font 1 8;
+#X msg 374 76 1;
+#X msg 335 75 0;
+#X msg 411 78 1;
+#X msg 290 420 set \$1;
+#X msg 291 440 set \$1;
+#X msg 293 460 set \$1;
+#X msg 294 480 set \$1;
+#X msg 551 9 label_pos 2 3;
+#X obj 576 153 sel 0 1 2 3 4;
+#X obj 643 179 t b;
+#X text 93 85 1920x1080;
+#X text 93 70 1280x780;
+#X msg 232 288 reset \, FSAA 2 \, dimen 1000 1000 \, create \, 1,
+f 23;
+#X text 93 55 1000x1000;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 0;
+#X connect 10 0 3 0;
+#X connect 11 0 4 0;
+#X connect 12 0 13 0;
+#X connect 14 0 71 0;
+#X connect 14 0 70 0;
+#X connect 15 0 72 0;
+#X connect 16 0 12 0;
+#X connect 16 0 17 0;
+#X connect 18 0 16 0;
+#X connect 18 0 73 0;
+#X connect 19 0 16 1;
+#X connect 19 0 74 0;
+#X connect 20 0 16 2;
+#X connect 20 0 75 0;
+#X connect 21 0 16 3;
+#X connect 21 0 76 0;
+#X connect 22 0 6 0;
+#X connect 23 0 24 0;
+#X connect 23 1 24 0;
+#X connect 24 0 31 0;
+#X connect 25 0 33 0;
+#X connect 26 0 25 0;
+#X connect 27 0 31 0;
+#X connect 28 0 27 2;
+#X connect 29 0 27 1;
+#X connect 30 0 29 0;
+#X connect 30 1 28 0;
+#X connect 32 0 26 0;
+#X connect 33 0 23 0;
+#X connect 34 0 35 0;
+#X connect 34 0 14 0;
+#X connect 35 0 52 0;
+#X connect 36 0 6 0;
+#X connect 39 0 78 0;
+#X connect 40 0 7 0;
+#X connect 41 0 82 0;
+#X connect 42 0 5 0;
+#X connect 43 0 22 0;
+#X connect 48 0 49 0;
+#X connect 48 0 36 0;
+#X connect 52 0 9 0;
+#X connect 56 0 57 0;
+#X connect 57 0 6 0;
+#X connect 58 0 19 0;
+#X connect 59 0 20 0;
+#X connect 60 0 21 0;
+#X connect 61 0 18 0;
+#X connect 62 0 66 0;
+#X connect 63 0 64 0;
+#X connect 64 0 62 0;
+#X connect 64 1 68 0;
+#X connect 64 2 65 0;
+#X connect 64 3 77 0;
+#X connect 64 4 69 0;
+#X connect 65 0 66 0;
+#X connect 67 0 64 0;
+#X connect 68 0 66 0;
+#X connect 69 0 66 0;
+#X connect 70 0 21 0;
+#X connect 71 0 18 0;
+#X connect 71 0 20 0;
+#X connect 71 0 19 0;
+#X connect 72 0 18 0;
+#X connect 72 0 21 0;
+#X connect 72 0 20 0;
+#X connect 72 0 19 0;
+#X connect 73 0 61 0;
+#X connect 74 0 58 0;
+#X connect 75 0 59 0;
+#X connect 76 0 60 0;
+#X connect 77 0 66 0;
+#X connect 78 0 40 0;
+#X connect 78 1 41 0;
+#X connect 78 2 42 0;
+#X connect 78 3 43 0;
+#X connect 78 4 79 0;
+#X connect 79 0 4 0;
+#X connect 82 0 6 0;
+#X coords 0 -1 1 1 212 240 2 60 -22;
